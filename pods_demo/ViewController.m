@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Masonry.h"
 
 @interface ViewController ()
 
@@ -28,6 +29,15 @@
     label.text = @"pods_demo";
     label.textColor = [UIColor blackColor];
     [self.view addSubview:label];
+    
+    UIView *masView = [[UIView alloc] init];
+    masView.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:masView];
+    [masView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label).offset(30);
+        make.top.equalTo(label).offset(label.bounds.size.height + 30);
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+    }];
 }
 
 
